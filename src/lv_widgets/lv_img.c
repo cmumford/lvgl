@@ -374,12 +374,12 @@ void lv_img_set_angle(lv_obj_t * img, int16_t angle)
  * - 128 half size
  * - 512 double size
  */
-void lv_img_set_zoom(lv_obj_t * img, uint16_t zoom)
+void lv_img_set_zoom(lv_obj_t * img, int16_t zoom)
 {
     lv_img_ext_t * ext = lv_obj_get_ext_attr(img);
     if(zoom == ext->zoom) return;
 
-    if(zoom == 0) zoom = 1;
+    if(zoom <= 0) zoom = 1;
 
     lv_style_int_t transf_zoom = lv_obj_get_style_transform_zoom(img, LV_IMG_PART_MAIN);
 
